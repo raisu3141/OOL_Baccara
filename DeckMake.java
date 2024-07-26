@@ -6,10 +6,10 @@ public class DeckMake {
     private static final int TOTAL_CARDS = NUM_DECKS * CARDS_PER_DECK;
     private static final String[] SUITS = { "Hearts", "Diamonds", "Clubs", "Spades" };
     private static final String[] RANKS = { "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A" };
-    
+
     private String[] deck = new String[TOTAL_CARDS];
     private double rnd;
-    
+
     public DeckMake(double rnd) {
         this.rnd = rnd;
         initializeDeck();
@@ -41,6 +41,10 @@ public class DeckMake {
         for (String card : deck) {
             System.out.println(card);
         }
+    }
+    //デッキの取得
+    public String[] getDeck() {
+        return deck;
     }
 
     public static void main(String[] args) {

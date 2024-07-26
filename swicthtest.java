@@ -40,6 +40,7 @@ public class swicthtest {
         final int H = 1;
         final int S = 0;
         final int[][] table = {
+            //r:bankerall, h:playerthird
             { H, H, H, H, H, H, H, H, H, H, H },
             { H, H, H, H, H, H, H, H, H, H, H },
             { H, H, H, H, H, H, H, H, H, H, H },
