@@ -1,11 +1,11 @@
+package bean;
+
 import net.goui.util.MTRandom;
 
+import static Constant.Constant.*;
+
+
 public class DeckMake {
-    private static final int NUM_DECKS = 6;
-    private static final int CARDS_PER_DECK = 52;
-    private static final int TOTAL_CARDS = NUM_DECKS * CARDS_PER_DECK;
-    private static final String[] SUITS = { "Hearts", "Diamonds", "Clubs", "Spades" };
-    private static final String[] RANKS = { "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A" };
     
     private String[] deck = new String[TOTAL_CARDS];
     private double rnd;
