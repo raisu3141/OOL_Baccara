@@ -3,6 +3,9 @@ package baccara;
 import Constant.Constant;
 
 public class Main {
+
+	public static int gamesPlayed = 1;
+
     /**
 	 * ここからスタート
 	 * @param arges
@@ -11,11 +14,18 @@ public class Main {
 		GameManage gm = new GameManage(Constant.POCKET_MONEY);
 
 		boolean finishGame = false;
-		do{
+do{
 			//ゲーム開始
 			boolean exeFnish = gm.play();
 			//ゲームを強制終了するか
-			if(exeFnish){
+			gamesPlayed++;
+			if (gm.getPlayer().getPocketMoney() >= Constant.TARGET_CHIP_COUNT) {
+				System.out.println("目標チップ数に達成しました！おめでとうございます！");
+				finishGame = true;
+			} else if (gamesPlayed >= Constant.MAX_GAMES) {
+				System.out.println("ゲームオーバーです。目標チップ数に達成できませんでした。");
+				finishGame = true;
+			} else if(exeFnish){
 				finishGame = true;
 			}else{
 				finishGame = !needRetryPlay();

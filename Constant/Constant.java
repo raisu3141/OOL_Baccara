@@ -14,11 +14,11 @@ public class Constant {
     public static final int TOTAL_CARDS = NUM_DECKS * CARDS_PER_DECK;
     /** 初期の所持ベル **/
     public static final int POCKET_MONEY = 1000;
+	/** ゲーム数 */
+	public static final int MAX_GAMES = 6;
+	/** 目標ベル */
+	public static final int TARGET_CHIP_COUNT = 3000;
 
-    //スート
-    public static final String[] SUITS = { "Hearts", "Diamonds", "Clubs", "Spades" };
-    //ランク
-    public static final String[] RANKS = { "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A" };
 
 
     /** ディーラー **/
@@ -72,7 +72,7 @@ public class Constant {
 	/** ユーザーにbet金を選ばせる文字 **/
 	public static final String CHOICE_USER_BET = "\nベットするベルを入力してください(end -> 終了)\n  >";
 	/** ユーザーに次の行動を選ばせる文字 **/
-	public static final String CHOICE_USER_ACTION = "続ける \n  y: yes  n:no\n  >";
+	public static final String CHOICE_USER_ACTION = "続けますか？ \n  y: yes  n:no\n  >";
 	/** プレイヤーに次の行動を選ばせる文字1 **/
 	public static final String CHOICE_PLAYER_ACTION1 = "カードをオープンしてください。\n  o: open ";
 	/** プレイヤーに次の行動を選ばせる文字end **/

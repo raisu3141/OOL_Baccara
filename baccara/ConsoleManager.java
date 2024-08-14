@@ -1,5 +1,7 @@
 package baccara;
 
+import static Constant.Constant.TARGET_CHIP_COUNT;
+
 import java.util.Scanner;
 
 import Constant.Constant;
@@ -109,6 +111,7 @@ public class ConsoleManager {
      * @return ユーザーが入力した文字
 	 */
 	public static final String choiceUserAction() {
+		ConsoleManager.gameInfoPrint("目標チップ数 -> " + Constant.TARGET_CHIP_COUNT + Constant.SPACE + "ラウンド数 -> " + Main.gamesPlayed + "/" + Constant.MAX_GAMES, true);
 		gameInfoPrint(Constant.CHOICE_USER_ACTION, false);
 		String inputStr = sc.nextLine();
 		return inputStr;
@@ -131,6 +134,7 @@ public class ConsoleManager {
 		ConsoleManager.gameInfoPrint(Constant.SEPARATOR_STR, true);
 		ConsoleManager.gameInfoPrint(Constant.GAME_START, true);
 		ConsoleManager.gameInfoPrint(Constant.SEPARATOR_STR, true);
+		ConsoleManager.gameInfoPrint("目標チップ数 -> " + Constant.TARGET_CHIP_COUNT + Constant.SPACE + "ラウンド数 -> " + Main.gamesPlayed + "/" + Constant.MAX_GAMES, true);
 		ConsoleManager.gameInfoPrint("  " + Constant.PLAYER + Constant.TEACH_POKET_MONEY + pocketMoney, true);
 	}
 	/**

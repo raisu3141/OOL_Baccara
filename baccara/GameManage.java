@@ -12,6 +12,10 @@ import bean.Player;
 import common.CommonFunc;
 
 public class GameManage {
+
+    public Player getPlayer() {
+        return player;
+    }
     
     /** ディーラーの作成 **/
 	private Dealer dealer;
@@ -137,10 +141,10 @@ public class GameManage {
 			try{
 				int betMoney = Integer.parseInt(userInputStr);
 				if(betMoney <= 0){
-					//0円以下をベット場合
+					//0円以下をベットした場合
 					ConsoleManager.gameInfoPrint(Constant.ONE_MORE_INPUT_UNDER0, true);
 				}else if(betMoney > player.getPocketMoney()){
-					//持っているベルより、多くをベット場合
+					//持っているベルより、多くをベットした場合
 					ConsoleManager.gameInfoPrint(Constant.ONE_MORE_INPUT_LESS_MONEY, true);
 				}else{
 					player.setBetMoney(betMoney);

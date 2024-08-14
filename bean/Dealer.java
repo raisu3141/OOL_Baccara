@@ -48,8 +48,13 @@ public class Dealer extends Human{
 	 * @return 手札の合計点
 	 */
 	private int getOpenOneScore() {
-		return hand.get(0).getNumber().getNum();
-	}
+		int result = hand.get(0).getNumber().getNum();
+        if (result >= 10) {
+            return result % 10;
+        } else {
+        return result;
+        }
+    }
 
     /**
      * 発言相手によって、メッセージを変える
