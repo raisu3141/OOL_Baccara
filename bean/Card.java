@@ -37,8 +37,8 @@ public class Card {
 	 * @author copper_dog
 	 */
 	public enum Suite {
-		SPADE("♠"), CLUB("♣"), DIAMOND("♦"), HEART("♥");
-		//SPADE("S "), CLUB("C "), DIAMOND("D "), HEART("H ");
+		//SPADE("♠"), CLUB("♣"), DIAMOND("♦"), HEART("♥");
+		SPADE("S "), CLUB("C "), DIAMOND("D "), HEART("H ");
 
 		/** トランプの柄 **/
 		private String label;
@@ -57,22 +57,19 @@ public class Card {
 	 * @author copper_dog
 	 */
 	public enum Number {
-		n1_1(11,"A ",true),n1_2(1,"A ",false),n2(2,"2 ",true),n3(3,"3 ",true),
-		n4(4,"4 ",true),n5(5,"5 ",true),n6(6,"6 ",true),
-		n7(7,"7 ",true),n8(8,"8 ",true),n9(9,"9 ",true),
-		n10(10,"10",true),n11(10,"J ",true),n12(10,"Q ",true),n13(10,"K ",true);
+		n1(1,"A "),n2(2,"2 "),n3(3,"3 "),
+		n4(4,"4 "),n5(5,"5 "),n6(6,"6 "),
+		n7(7,"7 "),n8(8,"8 "),n9(9,"9 "),
+		n10(10,"10"),n11(10,"J "),n12(10,"Q "),n13(10,"K ");
 
 		/** トランプの数字(計算する値) **/
 		private int num;
 		/** トランプの数字(表示する値) **/
 		private String displayNum;
-		/** デッキを作る際に含めるか **/
-		private boolean startCreate;
 
-		Number(int num, String displayNum, boolean startCreate) {
+		Number(int num, String displayNum) {
 			this.num = num;
 			this.displayNum = displayNum;
-			this.startCreate = startCreate;
 		}
 
 		public int getNum() {
@@ -80,9 +77,6 @@ public class Card {
 		}
 		public String getDisplayNum() {
 			return displayNum;
-		}
-		public boolean getStartCreate() {
-			return startCreate;
 		}
 	}
 

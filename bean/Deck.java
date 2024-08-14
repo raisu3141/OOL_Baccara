@@ -4,13 +4,18 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import Constant.Constant;
+
 import net.goui.util.MTRandom;
-import static Constant.Constant.*;
 
-
+/**
+ * デッキクラス
+ * @author copper_dog
+ *
+ */
 public class Deck {
-    
-    //デッキ
+
+	//デッキ
 	private List<Card> deck = null;
 	//次に引くカードの要素位置
 	private int nextDrawIndex = 0;
@@ -25,30 +30,40 @@ public class Deck {
 		reset();
 	}
 
-    /**
+	/**
 	 * デッキの状態をリセットする
 	 */
 	public void reset(){
-		//デッキのシャッフル
-        shuffleDeck(this.deck);
-
+		//デッキのシャッフルをする
+		long seed = System.currentTimeMillis();
+		MTRandom random = new MTRandom(seed); // seedをシードとして使用
+		for(int i = 0; i < Constant.TOTAL_CARDS; i++){
+			int j = random.nextInt(Constant.TOTAL_CARDS);
+			Card tmp = deck.get(i);
+			deck.set(i, deck.get(j));
+			deck.set(j, tmp);
+		}
+		
 		//次に引くカードの要素位置を0に戻す
 		nextDrawIndex = 0;
 	}
 
-    //デッキのシャッフル
-    private void shuffleDeck() {
-        final double seed = System.currentTimeMillis();
-        MTRandom random = new MTRandom((long) (seed * 1e9)); // rndをシードとして使用
-        for (int i = TOTAL_CARDS - 1; i > 0; i--) {
-            int j = random.nextInt(i + 1);
-            Card temp = deck.get(i);
-            deck.set(i, deck.get(j));
-            deck.set(j, temp);
-        }
-    }
+	/**
+	 * カードを1枚引く
+	 * @return 引いたカード
+	 */
+	public Card draw(){
+		if(this.deck.size() <= nextDrawIndex){
+			//***********カードが足りないため、引くカードがありません***********
+			//デッキの状態をリセットする
+			reset();
+		}
+		//代入と後置インクリメント
+		int drawIndex = nextDrawIndex++;
+		return deck.get(drawIndex);
+	}
 
-    /**
+	/**
 	 * 設定されたデッキ数setする
 	 * @return デッキ
 	 */
@@ -59,7 +74,7 @@ public class Deck {
 		//1デッキ作成
 		ArrayList<Card> oneDeck = createOneDeck();
 		//設定されたデッキ数setする
-		for(int i = 0; i < NUM_DECKS; i++){
+		for(int i = 0; i < Constant.NUM_DECKS; i++){
 			allDeck.addAll((List<Card>)oneDeck.clone());
 		}
 
@@ -74,7 +89,7 @@ public class Deck {
 		ArrayList<Card> deck = new ArrayList<>();
 
 		//numberのenum loop 1～13 (注:filterあり)
-		Arrays.stream(Card.Number.values()).filter(e -> e.getStartCreate()).forEach(number -> {
+		Arrays.stream(Card.Number.values()).forEach(number -> {
 			//suiteのenum loop
 			Arrays.stream(Card.Suite.values()).forEach(suite -> {
 				deck.add(new Card(suite, number));
@@ -83,5 +98,4 @@ public class Deck {
 
 		return deck;
 	}
-
 }
