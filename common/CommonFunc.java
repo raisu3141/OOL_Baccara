@@ -2,11 +2,9 @@ package common;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import Constant.Constant;
 import bean.Card;
-import bean.Dealer;
 import bean.Deck;
 import bean.Human;
 

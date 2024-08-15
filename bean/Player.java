@@ -1,11 +1,7 @@
 package bean;
 
-import java.util.ArrayList;
-import java.util.List;
 
 import Constant.Constant;
-import baccara.ConsoleManager;
-import common.CommonFunc;
 
 
 /**

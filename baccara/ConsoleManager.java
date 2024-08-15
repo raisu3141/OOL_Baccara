@@ -1,7 +1,5 @@
 package baccara;
 
-import static Constant.Constant.TARGET_CHIP_COUNT;
-
 import java.util.Scanner;
 
 import Constant.Constant;

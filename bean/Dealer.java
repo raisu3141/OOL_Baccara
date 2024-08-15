@@ -2,7 +2,6 @@ package bean;
 
 import Constant.Constant;
 import baccara.ConsoleManager;
-import common.CommonFunc;
 
 /**
  * Singletonパターン ディーラーのbean
