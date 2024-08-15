@@ -82,6 +82,41 @@ public class GameManage {
             }
         } while (true);
 
+        int drow = CommonFunc.judgementDraw(dealer.getHand(), player.getHand());
+        if (drow == 1 ){
+            //プレイヤーが一枚ドローする
+            player.getHand().add(deck.draw());
+
+            System.out.println("プレイヤーが１枚ドローします");
+
+            //プレイヤーの行動
+            do {
+                String userInputStr = ConsoleManager.choicePlayerAction(player);
+                if (playerAction(userInputStr)) {
+                    break;
+                }
+            } while (true);
+
+            int drow2 = CommonFunc.judgementDraw2(dealer.getHand(), player.getHand());
+            if (drow2 == 1){
+                //ディーラーがドローする
+                dealer.getHand().add(deck.draw());
+                System.out.println("ディーラーが１枚ドローします");
+                //プレイヤーの行動
+                do {
+                    String userInputStr = ConsoleManager.choicePlayerAction(player);
+                    if (playerAction(userInputStr)) {
+                        break;
+                    }
+                } while (true);
+            } else if (drow2 == 2){
+                //ディーラーがドローしない
+            }
+
+        } else if (drow == 2){
+            //両者がドローしない
+        }
+
 
         //勝敗の判定と、それによる行動を行う
 		judgementAction(gameStatus, player);
@@ -212,6 +247,7 @@ public class GameManage {
 
         //今の手札を表示する
 		ConsoleManager.handOpen(dealer, player, true);
+
 
         resultList.forEach((key, val) -> {
             switch (val) {

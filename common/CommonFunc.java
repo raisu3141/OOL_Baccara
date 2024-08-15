@@ -1,5 +1,6 @@
 package common;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -32,7 +33,7 @@ public class CommonFunc {
 	 * さらにドローするかを判断する
 	 * @param dealerHand ディーラーの手札
 	 * @param playerHand プレイヤーの手札
-	 * @return 1 -> player側が一枚ドロー, 2 -> 両者がドロー, 3 -> 両者がドローしない
+	 * @return 1 -> player側が一枚ドロー, 2 -> 両者がドローしない
 	 */
 	public static int judgementDraw(List<Card> dealerHand, List<Card> playerHand) {
 		int drawNum = 3;
@@ -41,21 +42,36 @@ public class CommonFunc {
 			getScore(dealerHand) > 8) {
 			//両者がドローしない
 			return drawNum;
+		} else if (getScore(playerHand) >= 6 && getScore(dealerHand) >= 6){
+			return drawNum;
+		} else if (getScore(playerHand) <= 5) {
+			//player側が一枚ドロー
+			drawNum = 1;
+			return drawNum;
 		} else {
-			final int H = 2; //両者ドロー
-        	final int S = 1; //player側が一枚ドロー
-			final int[][] table = {
-				{ H, H, H, H, H, H, H, H, H, H, H },
-				{ H, H, H, H, H, H, H, H, H, H, H },
-				{ H, H, H, H, H, H, H, H, H, H, H },
-				{ H, H, H, H, H, H, H, H, H, S, H },
-				{ H, S, S, H, H, H, H, H, H, S, H },
-				{ H, S, S, S, S, H, H, H, H, S, S },
-				{ S, S, S, S, S, S, S, H, H, S, S },
-				{ S, S, S, S, S, S, S, S, S, S, S }
-			};
-			return (table[getScore(dealerHand)][getScore(playerHand)]);
+			return drawNum;
 		}
+	}
+	public static int judgementDraw2(List<Card> dealerHand, List<Card> playerHand){
+
+		// 3枚目の手札を取得する
+		List<Card> thirdCardList = new ArrayList<>();
+		thirdCardList.add(playerHand.get(2));
+
+		final int H = 2; //ディーラーがドロー
+		final int S = 1; //ディーラーがドローしない
+		final int[][] table = {
+			{ H, H, H, H, H, H, H, H, H, H, H },
+			{ H, H, H, H, H, H, H, H, H, H, H },
+			{ H, H, H, H, H, H, H, H, H, H, H },
+			{ H, H, H, H, H, H, H, H, H, S, H },
+			{ H, S, S, H, H, H, H, H, H, S, H },
+			{ H, S, S, S, S, H, H, H, H, S, S },
+			{ S, S, S, S, S, S, S, H, H, S, S },
+			{ S, S, S, S, S, S, S, S, S, S, S }
+		};
+		return (table[getScore(dealerHand)][getScore(thirdCardList)]);
+
 	}
 
 	/**
