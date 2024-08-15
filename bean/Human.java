@@ -9,7 +9,6 @@ import common.CommonFunc;
 
 /**
  * 人間の抽象クラス
- * @author copper_dog
  *
  */
 public abstract class Human {

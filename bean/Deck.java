@@ -10,7 +10,6 @@ import net.goui.util.MTRandom;
 
 /**
  * デッキクラス
- * @author copper_dog
  *
  */
 public class Deck {

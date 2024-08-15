@@ -6,7 +6,6 @@ import Constant.Constant;
 
 /**
  * プレイヤーのbean
- * @author copper_dog
  *
  */
 public class Player extends Human {
