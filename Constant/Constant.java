@@ -84,7 +84,7 @@ public class Constant {
 	/** 損した報告 **/
 	public static final String RESULT_LOST = "ベル負けました。 ";
 	/** ゲーム終了の挨拶 **/
-	public static final String THANKS = "\n  copper_dog「Thank you for playing!! :)」    ";
+	public static final String THANKS = "\n  Thank you for playing!! :)    ";
 	/** ゲーム開始の挨拶 **/
 	public static final String GAME_START = "    ゲーム開始!!    ";
 	/** ゲーム開始の挨拶 **/

@@ -34,10 +34,8 @@ public class Card {
 
 	/**
 	 * トランプの柄の列挙クラス
-	 * @author copper_dog
 	 */
 	public enum Suite {
-		//SPADE("♠"), CLUB("♣"), DIAMOND("♦"), HEART("♥");
 		SPADE("S "), CLUB("C "), DIAMOND("D "), HEART("H ");
 
 		/** トランプの柄 **/
@@ -54,7 +52,6 @@ public class Card {
 
 	/**
 	 * トランプの数字の列挙クラス
-	 * @author copper_dog
 	 */
 	public enum Number {
 		n1(1,"A "),n2(2,"2 "),n3(3,"3 "),

@@ -6,7 +6,7 @@ import baccara.ConsoleManager;
 /**
  * Singletonパターン ディーラーのbean
  * 注1)状態を持たないこと
- * 注2)ポリモーフィズムが絡むこと
+ * 注2)ポリモーフィズムが絡む
  *
  */
 public class Dealer extends Human{
